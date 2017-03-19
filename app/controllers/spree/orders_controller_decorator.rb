@@ -1,16 +1,15 @@
 Spree::OrdersController.class_eval do
   def reorder
-    populator = Spree::OrderPopulator.new(current_order(create_order_if_necessary: true), current_currency)
+    current_order(create_order_if_necessary: true)
     order = Spree::Order.where( number: params[:id] ).first
 
-    if order.line_items.select {|li| populator.populate(li.variant.id, li.quantity) }.any?
-      respond_with(@order) do |format|
+    if order.line_items.select{ |li| @current_order.contents.add(li.variant, li.quantity) }
+      respond_with(@current_order) do |format|
         format.html { redirect_to cart_path }
       end
     else
-      flash[:error] = populator.errors.full_messages.join(' '.freeze)
+      flash[:error] = @current_order.errors.full_messages.join(' '.freeze)
       redirect_to :back
     end
-
   end
 end

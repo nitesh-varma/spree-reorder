@@ -5,10 +5,11 @@ This is just a simple extension to add a "Reorder" button to the Orders show vie
 
 To install, just add this to your Gemfile:
 
-    gem 'spree_reorder', github: 'onedanshow/spree-reorder', branch: '3-0-stable'
+    gem 'spree_reorder', github: 'onedanshow/spree-reorder', branch: '3-2-stable'
 
 
-I'll add more functionality as needed, but this mainly was an experiment to play with writing a Spree extension.
+Using the gem written by Daniel Dixon: https://github.com/onedanshow/spree-reorder.
 
+Improved it to work with Spree 3.2.0.rc3, as Spree::OrderPopulator is deprecated and has been removed.
 
-Copyright (c) 2015 Daniel Dixon, released under the New BSD License
+Copyright (c) 2017 Abhilash M Kuruo, released under the New BSD License
