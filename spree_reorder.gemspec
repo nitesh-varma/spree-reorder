@@ -13,5 +13,5 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_frontend', '~> 3.2.0.rc3'
+  s.add_dependency 'spree_frontend', '>= 3.2.0.rc3'
 end
